@@ -1,6 +1,6 @@
 # Empathy Engine
 
-Empathy Engine is a Python-based AI voice application that converts plain text into emotionally modulated speech. The system detects the sentiment of the input text, maps that emotion to vocal characteristics, and then synthesizes expressive audio using a cloud TTS provider such as Google Cloud Text-to-Speech or ElevenLabs.
+Empathy Engine is a Python-based AI voice application that converts plain text into emotionally modulated speech. The system detects the sentiment of the input text, maps that emotion to vocal characteristics, and then synthesizes expressive audio using a cloud TTS provider ElevenLabs.
 
 ## Features
 
@@ -21,7 +21,6 @@ Empathy Engine is a Python-based AI voice application that converts plain text i
   - Browser-based playback
   - Direct audio file URL
 - Supports multiple TTS providers:
-  - Google Cloud Text-to-Speech
   - ElevenLabs
 
 ---
@@ -37,8 +36,7 @@ Standard text-to-speech often sounds monotonic and robotic. The goal of Empathy 
 - **Backend:** FastAPI
 - **Frontend:** HTML + Jinja2 + CSS
 - **Emotion Detection:** VADER Sentiment
-- **TTS Providers:**
-  - Google Cloud Text-to-Speech
+- **TTS Provider:**
   - ElevenLabs
 - **Language:** Python
 
@@ -70,3 +68,4 @@ empathy-engine/
 ├── .env
 ├── requirements.txt
 └── README.md
+```

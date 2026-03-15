@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+output/*.mp3
+output/*.wav
+.idea/
+.vscode/
+google_credentials.json

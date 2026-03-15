@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empathy Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Empathy Engine</h1>
+        <p class="subtitle">
+            Enter text and generate emotionally modulated speech.
+        </p>
+
+        <form method="post" action="/">
+            <textarea
+                name="text"
+                rows="8"
+                placeholder="Type your text here..."
+                required
+            >{% if result %}{{ result.text }}{% endif %}</textarea>
+
+            <button type="submit">Generate Empathetic Audio</button>
+        </form>
+
+        {% if error %}
+        <div class="card error">
+            <strong>Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="card">
+            <h2>Result</h2>
+            <p><strong>Detected Emotion:</strong> {{ result.emotion }}</p>
+            <p><strong>Intensity:</strong> {{ result.intensity }}</p>
+            <p><strong>TTS Provider:</strong> {{ result.provider }}</p>
+
+            <div class="params">
+                <h3>Voice Parameters</h3>
+                <ul>
+                    <li><strong>Speaking Rate:</strong> {{ result.voice_params.speaking_rate }}</li>
+                    <li><strong>Pitch:</strong> {{ result.voice_params.pitch }}</li>
+                    <li><strong>Volume Gain (dB):</strong> {{ result.voice_params.volume_gain_db }}</li>
+                    <li><strong>Style Note:</strong> {{ result.voice_params.style_note }}</li>
+                </ul>
+            </div>
+
+            <div class="audio-section">
+                <h3>Generated Audio</h3>
+                <audio controls>
+                    <source src="{{ result.audio_url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p><a href="{{ result.audio_url }}" target="_blank">Open Audio File</a></p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
